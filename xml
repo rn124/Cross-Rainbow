@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map proto="1.3.0">
+	<name>Cross Rainbow</name>
+	<version>1.1.4</version>
+	<objective>敵チームの黒曜石の破壊と溶岩の流出 / Destroy the enemy's obsidian and leak lava.</objective>
+	<authors>
+		<author>rn01_24</author>
+	</authors>
+	<teams>
+		<team color="blue" max="25">Blue Team</team>
+		<team color="red" max="25">Red Team</team>
+	</teams>
+	<kits>
+		<kit name="spawn">
+			<item slot="0">stone sword</item>
+			<item slot="1">bow</item>
+			<item slot="2" enchantment="durability:3;dig speed:2">diamond pickaxe</item>
+			<item slot="3" amount="64">sandstone</item>
+			<item slot="4" amount="32">glass</item>
+			<item slot="8" amount="48">golden carrot</item>
+			<item slot="28" amount="32">arrow</item>
+			<item slot="30" amount="64">sandstone</item>
+			<chestplate bind="true">leather chestplate</chestplate>
+			<leggings bind="true">leather leggings</leggings>
+			<boots bind="true">leather boots</boots>
+			<potion duration="5" amplifier="100">regeneration</potion>
+			<potion duration="5" amplifier="5">increase_damage</potion>
+			<potion duration="5" amplifier="5">damage_resistance</potion>
+		</kit>
+		<kit name="blue" parents="spawn">
+			<item slot="103" damage="11" bind="true" locked="true">stained glass</item>
+		</kit>
+		<kit name="red" parents="spawn">
+			<item slot="103" damage="14" bind="true" locked="true">stained glass</item>
+		</kit>
+	</kits>
+	<spawns>
+		<spawn team="blue" yaw="180" kit="blue">
+			<cuboid min="1,9,50" max="-1,9,51"/>
+		</spawn>
+		<spawn team="red" yaw="0" kit="red">
+			<cuboid min="1,9,-50" max="-1,9,-51"/>
+		</spawn>
+		<default yaw="90">
+			<cuboid min="1,43,1" max="-1,43,-1"/>
+		</default>
+	</spawns>
+	<filters>
+		<filter name="only-blue" parents="deny-players deny-world deny-blocks">
+			<allow>
+				<team>blue</team>
+			</allow>
+		</filter>
+		<filter name="only-red" parents="deny-players deny-world deny-blocks">
+			<allow>
+				<team>red</team>
+			</allow>
+		</filter>
+	<!--
+		<filter name="do-not-enter" parents="deny-players deny-world deny-blocks">
+		</filter>
+	-->
+	</filters>
+	<regions>
+		<rectangle min="10,45" max="-10,54" name="blue-base"/>
+		<rectangle min="10,-45" max="-10,-54" name="red-base"/>
+		<union name="deny-map">
+		<!-- Blue base-->
+			<rectangle min="-21,54" max="-21,51" name="bluebase1"/>
+			<rectangle min="-20,50" max="-20,48" name="bluebase2"/>
+			<rectangle min="-19,47" max="-19,45" name="bluebase3"/>
+			<rectangle min="-18,44" max="-18,43" name="bluebase4"/>
+			<rectangle min="-17,42" max="-17,42" name="bluebase5"/>
+			<rectangle min="-16,41" max="-16,41" name="bluebase6"/>
+			<rectangle min="-15,40" max="-15,40" name="bluebase7"/>
+			<rectangle min="-14,39" max="-14,39" name="bluebase8"/>
+			<rectangle min="-13,38" max="-13,38" name="bluebase9"/>
+			<rectangle min="-12,37" max="-11,37" name="bluebase10"/>
+			<rectangle min="-10,36" max="-8,36" name="bluebase11"/>
+			<rectangle min="-7,35" max="-5,35" name="bluebase12"/>
+			<rectangle min="21,54" max="21,51" name="bluebase13"/>
+			<rectangle min="20,50" max="20,48" name="bluebase14"/>
+			<rectangle min="19,47" max="19,45" name="bluebase15"/>
+			<rectangle min="18,44" max="18,43" name="bluabase16"/>
+			<rectangle min="17,42" max="17,42" name="bluebase17"/>
+			<rectangle min="16,41" max="16,41" name="bluebase18"/>
+			<rectangle min="15,40" max="15,40" name="bluebase19"/>
+			<rectangle min="14,39" max="14,39" name="bluebase20"/>
+			<rectangle min="13,38" max="13,38" name="bluebase21"/>
+			<rectangle min="12,37" max="11,37" name="bluebase22"/>
+			<rectangle min="10,36" max="8,36" name="bluebase23"/>
+			<rectangle min="7,35" max="5,35" name="bluebase24"/>
+		<!-- Red base-->
+			<rectangle min="-21,-54" max="-21,-51" name="redbase1"/>
+			<rectangle min="-20,-50" max="-20,-48" name="redbase2"/>
+			<rectangle min="-19,-47" max="-19,-45" name="redbase3"/>
+			<rectangle min="-18,-44" max="-18,-43" name="redbase4"/>
+			<rectangle min="-17,-42" max="-17,-42" name="redbase5"/>
+			<rectangle min="-16,-41" max="-16,-41" name="redbase6"/>
+			<rectangle min="-15,-40" max="-15,-40" name="redbase7"/>
+			<rectangle min="-14,-39" max="-14,-39" name="redbase8"/>
+			<rectangle min="-13,-38" max="-13,-38" name="redbase9"/>
+			<rectangle min="-12,-37" max="-11,-37" name="redbase10"/>
+			<rectangle min="-10,-36" max="-8,-36" name="redbase11"/>
+			<rectangle min="-7,-35" max="-5,-35" name="redbase12"/>
+			<rectangle min="21,-54" max="21,-51" name="redbase13"/>
+			<rectangle min="20,-50" max="20,-48" name="redbase14"/>
+			<rectangle min="19,-47" max="19,-45" name="redbase15"/>
+			<rectangle min="18,-44" max="18,-43" name="redbase16"/>
+			<rectangle min="17,-42" max="17,-42" name="redbase17"/>
+			<rectangle min="16,-41" max="16,-41" name="redbase18"/>
+			<rectangle min="15,-40" max="15,-40" name="redbase19"/>
+			<rectangle min="14,-39" max="14,-39" name="redbase20"/>
+			<rectangle min="13,-38" max="13,-38" name="redbase21"/>
+			<rectangle min="12,-37" max="11,-37" name="redbase22"/>
+			<rectangle min="10,-36" max="8,-36" name="redbase23"/>
+			<rectangle min="7,-35" max="5,-35" name="redbase24"/>
+		</union>
+		<apply message="敵の本拠地へは進入できません。/ You may not enter enemy's base." enter="only-blue">
+			<region name="blue-base"/>
+		</apply>
+		<apply message="敵の本拠地へは進入できません。/ You may not enter enemy's base." enter="only-red">
+			<region name="red-base"/>
+		</apply>
+		<apply message="本拠地は編集できません。/ You may not modify base." block="deny-blocks">
+			<region name="blue-base"/>
+			<region name="red-base"/>
+		</apply>
+		<apply message="範囲外は編集できません。/ You may not modify." block="deny-blocks">
+			<rectangle min="-59,-79" max="59,-79"/>
+			<rectangle min="-59,-79" max="-59,79"/>
+			<rectangle min="59,-79" max="59,79"/>
+			<rectangle min="-59,79" max="59,79"/>
+		</apply>
+		<apply message="拠点島の端は編集できません。/ You may not modify." block="deny-blocks">
+			<region name="deny-map"/>
+		</apply>
+	<!--
+		<apply message="進入できません。/ You may not enter." enter="do-not-enter">
+			<region name="deny-map"/>
+		</apply>
+	-->
+	</regions>
+	<destroyables materials="obsidian" completion="100%">
+		<destroyable owner="blue" name="Obsidian Yellow">
+			<cuboid min="-41,10,51" max="-43,10,51"/>
+		</destroyable>
+		<destroyable owner="blue" name="Obsidian Green">
+			<cuboid min="41,10,51" max="43,10,51"/>
+		</destroyable>
+		<destroyable owner="red" name="Obsidian Yellow">
+			<cuboid min="41,10,-51" max="43,10,-51"/>
+		</destroyable>
+		<destroyable owner="red" name="Obsidian Green">
+			<cuboid min="-41,10,-51" max="-43,10,-51"/>
+		</destroyable>
+	</destroyables>
+	<cores material="obsidian" leak="3">
+		<core team="blue">
+			<cuboid min="2,13,76" max="-2,17,72"/>
+		</core>
+		<core team="red">
+			<cuboid min="2,13,-76" max="-2,17,-72"/>
+		</core>
+	</cores>
+	<itemremove>
+		<item>stone sword</item>
+		<item>bow</item>
+		<item>diamond pickaxe</item>
+		<item>sandstone</item>
+		<item>golden carrot</item>
+		<item>arrow</item>
+		<item>leather helmet</item>
+		<item>leather chestplate</item>
+		<item>leather leggings</item>
+		<item>leather boots</item>
+		<item>gold sword</item>
+		<item>chainmail chestplate</item>
+		<item>chainmail leggings</item>
+		<item>chainmail boots</item>
+		<item>wood sword</item>
+		<item>iron sword</item>
+		<item>obsidian</item>
+		<item>iron block</item>
+		<item>ladder</item>
+		<item>carpet</item>
+		<item>brick stairs</item>
+	</itemremove>
+	<itemrepair>
+		<item>stone sword</item>
+	</itemrepair>
+	<maxbuildheight>30</maxbuildheight>
+	<killreward>
+		<item amount="1">Golden apple</item>
+	</killreward>
+	<timelock>on</timelock>
+	<autorespawn time="5s"/>
+<include src="tutorial.xml"/>
+	<tutorial>
+		<stage title="Cross Rainbow (DTM and DTC)">
+			<message>
+				<line>This map is `a`lCross Rainbow `r(DTM and DTC) .</line>
+				<line>The objective is to destroy the enemy team's monument and core.</line>
+			</message>
+			<message lang="ja_JP">
+				<line>このマップは`a`lCross Rainbow `r(DTM and DTC)マップです。</line>
+				<line>敵チームのモニュメントとコアを破壊することが目標となります。</line>
+			</message>
+			<teleport>
+				<point yaw="90" pitch="50">54,39,0</point>
+			</teleport>
+		</stage>
+		<stage title="Blue team's Monument">
+			<title lang="ja_JP">Blueチームのモニュメント</title>
+			<message>
+				<line>This is a Obsidian monument of a Blue team.</line>
+				<line>Red team must destroy of this monuments for a victory.</line>
+			</message>
+			<message lang="ja_JP">
+				<line>Blueチームの黒曜石のモニュメントです。</line>
+				<line>Redチームは勝利のためにこのモニュメントを破壊しなければなりません。</line>
+			</message>
+			<teleport>
+				<point yaw="41" pitch="-20">-36,8,44</point>
+			</teleport>
+		</stage>
+		<stage title="Blue team's Core">
+			<title lang="ja_JP">Blueチームのコア</title>
+			<message>
+				<line>This is a Core of a Blue team.</line>
+				<line>Red team must destroy of this core for a victory.</line>
+			</message>
+			<message lang="ja_JP">
+				<line>Blueチームのコアです。</line>
+				<line>Redチームは勝利のためにこのコアも破壊しなければなりません。</line>
+			</message>
+			<teleport>
+				<point yaw="-35" pitch="0">-6,14,63</point>
+			</teleport>
+		</stage>
+	</tutorial>
+</map>
+
