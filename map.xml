@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map proto="1.3.0">
+	<name>Cross Rainbow</name>
+	<version>1.5.2</version>
+	<objective>敵拠点後ろのコアから溶岩を流出 / Leak lava from the enemy's obsidian core.</objective>
+	<authors>
+		<author>rn01_24</author>
+	</authors>
+	<teams>
+		<team color="blue" max="25">Blue Team</team>
+		<team color="red" max="25">Red Team</team>
+	</teams>
+	<kits>
+		<kit name="spawn">
+			<item slot="0">stone sword</item>
+			<item slot="1">bow</item>
+			<item slot="2" enchantment="durability:3;dig speed:2">diamond pickaxe</item>
+			<item slot="3" amount="64">sandstone</item>
+			<item slot="4" amount="32">glass</item>
+			<item slot="8" amount="48">golden carrot</item>
+			<item slot="28" amount="32">arrow</item>
+			<item slot="30" amount="64">sandstone</item>
+			<chestplate bind="true">leather chestplate</chestplate>
+			<leggings bind="true">leather leggings</leggings>
+			<boots bind="true">leather boots</boots>
+			<potion duration="4" amplifier="100">regeneration</potion>
+			<potion duration="4" amplifier="5">increase_damage</potion>
+			<potion duration="4" amplifier="5">damage_resistance</potion>
+		</kit>
+		<kit name="blue" parents="spawn">
+			<item slot="103" damage="11" bind="true" locked="true">stained glass</item>
+		</kit>
+		<kit name="red" parents="spawn">
+			<item slot="103" damage="14" bind="true" locked="true">stained glass</item>
+		</kit>
+	</kits>
+	<spawns>
+		<spawn team="blue" yaw="180" kit="blue">
+			<cuboid min="1,9,50" max="-1,9,51"/>
+		</spawn>
+		<spawn team="red" yaw="0" kit="red">
+			<cuboid min="1,9,-50" max="-1,9,-51"/>
+		</spawn>
+		<default yaw="90">
+			<cuboid min="1,43,1" max="-1,43,-1"/>
+		</default>
+	</spawns>
+	<filters>
+		<filter name="only-blue" parents="deny-players deny-world deny-blocks">
+			<allow>
+				<team>blue</team>
+			</allow>
+		</filter>
+		<filter name="only-red" parents="deny-players deny-world deny-blocks">
+			<allow>
+				<team>red</team>
+			</allow>
+		</filter>
+		<filter name="deny-goldblocks">
+			<deny>
+				<block>gold block</block>
+			</deny>
+		</filter>
+	</filters>
+	<regions>
+		<union name="crafting-table">
+			<block>-32,9,-51</block>
+			<block>-34,9,-47</block>
+			<block>-50,9,-47</block>
+			<block>-52,9,-51</block>
+			<block>32,9,-51</block>
+			<block>34,9,-47</block>
+			<block>50,9,-47</block>
+			<block>52,9,-51</block>
+			<block>32,9,51</block>
+			<block>34,9,47</block>
+			<block>50,9,47</block>
+			<block>52,9,51</block>
+			<block>-32,9,51</block>
+			<block>-34,9,47</block>
+			<block>-50,9,47</block>
+			<block>-52,9,51</block>
+		</union>
+		<rectangle min="10,45" max="-10,54" name="blue-base"/>
+		<rectangle min="10,-45" max="-10,-54" name="red-base"/>
+		<apply message="敵の本拠地へは進入できません。/ You may not enter enemy's base." enter="only-blue">
+			<region name="blue-base"/>
+		</apply>
+		<apply message="敵の本拠地へは進入できません。/ You may not enter enemy's base." enter="only-red">
+			<region name="red-base"/>
+		</apply>
+		<apply message="本拠地は編集できません。/ You may not modify base." block="deny-blocks">
+			<region name="blue-base"/>
+			<region name="red-base"/>
+		</apply>
+		<apply message="範囲外は編集できません。/ You may not modify." block="deny-blocks">
+			<rectangle min="-59,-79" max="59,-79"/>
+			<rectangle min="-59,-79" max="-59,79"/>
+			<rectangle min="59,-79" max="59,79"/>
+			<rectangle min="-59,79" max="59,79"/>
+		</apply>
+		<apply message="作業台は破壊できません。/ You may not break this block." block="deny-break">
+			<region name="crafting-table"/>
+		</apply>
+		<apply message="金ブロックは設置できません。/ You may not place gold block." block-place="deny-goldblocks">
+			<cuboid min="-3,11,71" max="3,19,77"/>
+			<cuboid min="3,11,-71" max="-3,19,-77"/>
+		</apply>
+	</regions>
+	<cores material="obsidian" leak="3">
+		<core team="blue">
+			<cuboid min="-1,12,73" max="1,18,75"/>
+		</core>
+		<core team="red">
+			<cuboid min="1,12,-73" max="-1,18,-75"/>
+		</core>
+	</cores>
+	<itemremove>
+		<item>stone sword</item>
+		<item>bow</item>
+		<item>diamond pickaxe</item>
+		<item>sandstone</item>
+		<item>golden carrot</item>
+		<item>arrow</item>
+		<item>gold helmet</item>
+		<item>gold chestplate</item>
+		<item>leather chestplate</item>
+		<item>leather leggings</item>
+		<item>gold leggings</item>
+		<item>gold boots</item>
+		<item>leather boots</item>
+		<item>gold sword</item>
+		<item>chainmail chestplate</item>
+		<item>iron sword</item>
+		<item>obsidian</item>
+		<item>iron block</item>
+		<item>ladder</item>
+		<item>carpet</item>
+		<item>brick stairs</item>
+		<item>glass</item>
+		<item>gold block</item>
+	</itemremove>
+	<itemrepair>
+		<item>stone sword</item>
+	</itemrepair>
+	<blockdrops>
+		<rule>
+			<region>
+				<negative><rectangle min="0,0" max="0,0"/></negative>
+			</region>
+			<filter>
+				<block>obsidian</block>
+			</filter>
+		</rule>
+	</blockdrops>
+	<renewables>
+		<renewable rate="3" particles="true" sound="true" avoid-entities="true">
+			<region>
+				<cuboid min="-35,9,-48" max="-49,13,-54"/>
+				<cuboid min="-35,9,48" max="-49,13,54"/>
+				<cuboid min="35,9,48" max="49,13,54"/>
+				<cuboid min="35,9,-48" max="49,13,-54"/>
+			</region>
+			<renew>gold block</renew>
+			<replace>air</replace>
+		</renewable>
+	</renewables>
+	<maxbuildheight>30</maxbuildheight>
+	<killreward>
+		<item amount="1">Golden apple</item>
+	</killreward>
+	<autorespawn time="5s"/>
+<include src="tutorial.xml"/>
+	<tutorial>
+		<stage title="Destroy the Core (DTC)">
+			<message>
+				<line>This map is a `a`lDestroy the Core `r(DTC) map.</line>
+				<line>The objective is to leak the lava from other team's core.</line>
+			</message>
+			<message lang="ja_JP">
+				<line>このマップは`a`lDestroy the Core `r(DTC)マップです。</line>
+				<line>敵チームのコアを破壊することが目標となります。</line>
+			</message>
+			<teleport>
+				<point yaw="90" pitch="50">54,39,0</point>
+			</teleport>
+		</stage>
+		<stage title="Blue Core">
+			<title lang="ja_JP">Blueチームのコア</title>
+			<message>
+				<line>This is the `9Blue Core`r.</line>
+				<line>The obsidian blocks hold lava inside. `cRed team `rneeds to break the obsidian blocks to leak the lava out of the core to win`r.</line>
+			</message>
+			<message lang="ja_JP">
+				<line>Blueチームのコアです。</line>
+				<line>Redチームはこのコアを破壊し、溶岩を流出させなければなりません。</line>
+			</message>
+			<teleport>
+				<point yaw="-35" pitch="0">-6,14,63</point>
+			</teleport>
+		</stage>
+	</tutorial>
+</map>
+
