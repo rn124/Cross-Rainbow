@@ -18,7 +18,7 @@
 			<item slot="3" amount="64">sandstone</item>
 			<item slot="4" amount="32">glass</item>
 			<item slot="8" amount="48">golden carrot</item>
-			<item slot="28" amount="32">arrow</item>
+			<item slot="28" amount="48">arrow</item>
 			<item slot="30" amount="64">sandstone</item>
 			<chestplate bind="true">leather chestplate</chestplate>
 			<leggings bind="true">leather leggings</leggings>
@@ -171,7 +171,7 @@
 	<maxbuildheight>30</maxbuildheight>
 	<killreward>
 		<item amount="1">golden apple</item>
-		<item amount="16">arrow</item>
+		<item amount="8">arrow</item>
 	</killreward>
 	<autorespawn time="5s"/>
 <include src="tutorial.xml"/>
